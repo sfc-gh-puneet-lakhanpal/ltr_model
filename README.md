@@ -1,6 +1,6 @@
 # LTR Model
 
-This repo contains a Snowflake notebook called `LTR model.ipynb` that builds a LTR model and deploys to SPCS for inferencing via model registry. 
+This repo contains a Snowflake notebook called `LTR model.ipynb` that builds a Learning to Rank (LTR) model designed for personalized credit card offer recommendations and deploys to SPCS for inferencing via model registry. 
 
 
 
