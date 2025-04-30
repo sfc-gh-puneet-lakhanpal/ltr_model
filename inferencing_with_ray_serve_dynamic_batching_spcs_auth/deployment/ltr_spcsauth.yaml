@@ -1,0 +1,82 @@
+spec:
+  containers:
+    - name: ltr
+      image: /partners_db/kipi_sch/image_repo/ltr_spcsauth
+      resources:
+        requests:
+          memory: 100G
+      volumeMounts:
+        - name: dshm
+          mountPath: /dev/shm
+        - name: raylogs
+          mountPath: /raylogs
+        - name: models
+          mountPath: /models
+      env:
+        MODEL_NAME: LTR_MODEL
+        MODEL_DOWNLOAD_DIR_NAME: model_files
+         
+  endpoints:
+    - name: api
+      port: 8000
+      public: true
+    - name: ray-gcs-server-port
+      port: 6379
+      protocol: TCP
+      public: false
+    - name: ray-client-server-port
+      port: 10001
+      public: false
+    - name: ray-dashboard
+      port: 8265
+      public: true
+    - name: object-manager-port
+      port: 8076
+      protocol: TCP
+      public: false
+    - name: node-manager-port
+      port: 8077
+      protocol: TCP
+      public: false
+    - name: dashboard-agent-grpc-port
+      port: 8079
+      protocol: TCP
+      public: false
+    - name: dashboard-grpc-port
+      port: 8080
+      protocol: TCP
+      public: false
+    - name: dashboard-agent-listen-port
+      port: 8081
+      protocol: TCP
+      public: false
+    - name: metrics-export-port
+      port: 8082
+      protocol: TCP
+      public: false
+    - name: autoscaler-metric-port
+      port: 8083
+      protocol: TCP
+      public: false
+    - name: dashboard-metric-port
+      port: 8084
+      protocol: TCP
+      public: false
+    - name: worker-ports
+      portRange: 10002-19999
+      protocol: TCP
+    - name: ephemeral-port-range
+      portRange: 32768-60999
+      protocol: TCP
+  volumes:
+    - name: dshm
+      source: memory
+      size: 10.16Gi
+    - name: raylogs
+      source: block
+      size: 100Gi
+    - name: models
+      source: block
+      size: 1Gi
+  networkPolicyConfig:
+    allowInternetEgress: true

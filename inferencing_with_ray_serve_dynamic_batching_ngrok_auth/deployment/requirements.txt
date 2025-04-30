@@ -1,0 +1,7 @@
+pydantic
+ray[default]==2.44.0
+ray[serve]==2.44.0
+ray[client]==2.44.0
+snowflake-ml-python
+snowflake-snowpark-python[pandas]
+lightgbm==4.5.0
