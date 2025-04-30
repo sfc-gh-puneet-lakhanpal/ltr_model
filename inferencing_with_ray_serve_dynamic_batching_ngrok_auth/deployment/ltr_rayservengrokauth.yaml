@@ -15,8 +15,8 @@ spec:
       env:
         MODEL_NAME: LTR_MODEL
         MODEL_DOWNLOAD_DIR_NAME: model_files
-        NGROK_TOKEN: "2hqOLqF0rtsNSu1rqJ8dcHeADdI_NF4eULKegUbZh2faxa4k"
-        NGROK_APP: "snowflakepsekipiltrserving.ngrok.app"
+        NGROK_TOKEN: "X"
+        NGROK_APP: "X"
          
   endpoints:
     - name: api
